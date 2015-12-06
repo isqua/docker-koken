@@ -1,0 +1,12 @@
+koken:
+  build: build/koken
+  restart: always
+  container_name: koken
+
+  ports:
+    - "9000:9000"
+    - "9001:9001"
+
+  volumes:
+    - ./www:/var/www
+    - ./mysql:/var/lib/mysql
