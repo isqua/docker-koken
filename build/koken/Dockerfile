@@ -43,6 +43,7 @@ RUN \
 	sed -i -e "s/post_max_size\s*=\s*8M/post_max_size = 101M/g" /etc/php5/fpm/php.ini && \
 	sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php5/fpm/php-fpm.conf && \
 	sed -i -e "s/;pm.max_requests\s*=\s*500/pm.max_requests = 500/g" /etc/php5/fpm/pool.d/www.conf && \
+	sed -i -e "s/;catch_workers_output/catch_workers_output/" /etc/php5/fpm/pool.d/www.conf && \
 	echo "env[KOKEN_HOST] = 'koken-docker'" >> /etc/php5/fpm/pool.d/www.conf && \
 	cp /etc/php5/fpm/pool.d/www.conf /etc/php5/fpm/pool.d/images.conf && \
 	sed -i -e "s/\[www\]/[images]/" /etc/php5/fpm/pool.d/images.conf && \
